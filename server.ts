@@ -11,7 +11,8 @@ import fs from "fs";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const db = new Database("smartpack.db");
+const dbPath = process.env.DATABASE_PATH || "smartpack.db";
+const db = new Database(dbPath);
 
 // Email Transporter Setup
 const transporter = nodemailer.createTransport({
